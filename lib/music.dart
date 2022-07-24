@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'lyrics.dart';
 
 class PlayMusicPage extends StatefulWidget {
   const PlayMusicPage({Key? key, required this.title}) : super(key: key);
@@ -40,11 +41,10 @@ class _PlayMusicPageState extends State<PlayMusicPage> {
                         Column(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 50, bottom: 10),
+                              padding: const EdgeInsets.only(top: 50),
                               child: Container(
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 2.0),
+                                    const EdgeInsets.symmetric(vertical: 3.0),
                                 alignment: Alignment.center,
                                 width: 160,
                                 height: 35,
@@ -71,17 +71,31 @@ class _PlayMusicPageState extends State<PlayMusicPage> {
                                 ),
                               ),
                             ),
-                            const Text(
-                              '기대지 마\n기대하지도 마',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 11),
-                              textAlign: TextAlign.center,
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                primary: Colors.transparent,
+                                textStyle: const TextStyle(fontSize: 11),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const LyricsPage(title: '')),
+                                );
+                              },
+                              child: const Text(
+                                '기대지 마\n기대하지도 마',
+                                style:
+                                    TextStyle(color: Colors.white, height: 1.3),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ],
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 22, bottom: 10, right: 10, left: 15),
+                              top: 12, bottom: 10, right: 7, left: 15),
                           child: Container(
                             padding: const EdgeInsets.only(top: 2.0),
                             alignment: Alignment.bottomCenter,
@@ -109,7 +123,7 @@ class _PlayMusicPageState extends State<PlayMusicPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 22, bottom: 10, right: 20),
+                              top: 12, bottom: 10, right: 23),
                           child: Container(
                             alignment: Alignment.bottomCenter,
                             width: 35,
@@ -123,11 +137,7 @@ class _PlayMusicPageState extends State<PlayMusicPage> {
                               alignment: Alignment.center,
                               icon: const Icon(Icons.ios_share_rounded),
                               iconSize: 25.0,
-                              onPressed: () {
-                                setState(() {
-                                  isLike = !isLike;
-                                });
-                              },
+                              onPressed: () {},
                             ),
                           ),
                         ),
