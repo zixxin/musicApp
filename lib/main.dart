@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          scaffoldBackgroundColor: const Color.fromARGB(255, 0, 0, 0)),
       home: const PlayMusicPage(title: ''),
     );
   }
