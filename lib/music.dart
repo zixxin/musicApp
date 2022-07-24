@@ -12,6 +12,7 @@ class PlayMusicPage extends StatefulWidget {
 
 class _PlayMusicPageState extends State<PlayMusicPage> {
   bool isPlaying = false;
+  bool isLike = false;
   String startTime = '1:18';
 
   @override
@@ -32,43 +33,103 @@ class _PlayMusicPageState extends State<PlayMusicPage> {
                   ),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Column(
+                    Row(
                       children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 50, bottom: 10),
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 2.0),
+                                alignment: Alignment.center,
+                                width: 160,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFD9D9D9)
+                                        .withOpacity(0.2),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(5.0))),
+                                child: Column(
+                                  children: const [
+                                    Text(
+                                      'INVU',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 14),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Text(
+                                      '태연 (Taeyeon)',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 9),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const Text(
+                              '기대지 마\n기대하지도 마',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 11),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 45, bottom: 10),
+                          padding: const EdgeInsets.only(
+                              top: 22, bottom: 10, right: 10, left: 15),
                           child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 2.0),
-                            alignment: Alignment.center,
-                            width: 160,
+                            padding: const EdgeInsets.only(top: 2.0),
+                            alignment: Alignment.bottomCenter,
+                            width: 35,
                             height: 35,
                             decoration: BoxDecoration(
                                 color: const Color(0xFFD9D9D9).withOpacity(0.2),
                                 borderRadius: const BorderRadius.all(
-                                    Radius.circular(5.0))),
-                            child: Column(
-                              children: const [
-                                Text(
-                                  'INVU',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 14),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  '태연 (Taeyeon)',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 9),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
+                                    Radius.circular(100))),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              alignment: Alignment.center,
+                              icon: isLike
+                                  ? const Icon(Icons.favorite_rounded)
+                                  : const Icon(Icons.favorite_border_rounded),
+                              color: const Color(0xFFE64C3C),
+                              iconSize: 25.0,
+                              onPressed: () {
+                                setState(() {
+                                  isLike = !isLike;
+                                });
+                              },
                             ),
                           ),
                         ),
-                        const Text(
-                          '기대지 마\n기대하지도 마',
-                          style: TextStyle(color: Colors.white, fontSize: 11),
-                          textAlign: TextAlign.center,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 22, bottom: 10, right: 20),
+                          child: Container(
+                            alignment: Alignment.bottomCenter,
+                            width: 35,
+                            height: 35,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFD9D9D9).withOpacity(0.2),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(100))),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              alignment: Alignment.center,
+                              icon: const Icon(Icons.ios_share_rounded),
+                              iconSize: 25.0,
+                              onPressed: () {
+                                setState(() {
+                                  isLike = !isLike;
+                                });
+                              },
+                            ),
+                          ),
                         ),
                       ],
                     ),
